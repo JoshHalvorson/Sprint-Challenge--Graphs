@@ -17,19 +17,6 @@ class Stack():
     def size(self):
         return len(self.stack)
 
-class Queue():
-    def __init__(self):
-        self.queue = []
-    def enqueue(self, value):
-        self.queue.append(value)
-    def dequeue(self):
-        if self.size() > 0:
-            return self.queue.pop(0)
-        else:
-            return None
-    def size(self):
-        return len(self.queue)
-
 # Load world
 world = World()
 
@@ -74,6 +61,7 @@ while len(visited_rooms) < len(world.rooms):
     for exit in exits:
         if exit is not None and player.currentRoom.getRoomInDirection(exit) not in visited_rooms:
             dirs.append(exit)
+    # add room visited set
     visited_rooms.add(player.currentRoom)
     # if there are directions to move in
     # pick a random one available
